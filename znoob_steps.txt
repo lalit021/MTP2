@@ -1,0 +1,23 @@
+cd MTP2/
+docker compose up
+./enter.sh , roscore
+./enter.sh , roslaunch aruco_pose med.launch , rerun if error
+/usr/bin/python3 /home/dell/MTP2/catkin_ws/src/aruco_pose/scripts/get_point_moon.py, enter
+./enter.sh, roslaunch arm_control arm_bringup.launch 
+1,ors orange sachet,"[(140, 265)]"
+
+
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+
+export NVM_DIR="$HOME/.nvm"
+source "$NVM_DIR/nvm.sh"
+
+nvm install 16
+nvm use 16
+nvm alias default 16
+
+node -v
+npm -v
+(myenv) root@dell-Precision-3650-Tower:~/catkin_ws/src/arm_control/scripts/roswebsocketpython# rostopic echo /tf_static

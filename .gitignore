@@ -1,0 +1,118 @@
+# === Duplicate workspace’s tmr_ros1 package ===
+catkin_ws_copy/src/tmr_ros1/
+catkin_ws/src/tmr_ros1/
+catkin_ws_copy/
+ros2_ws/
+new_mtp/
+robot_ws/
+segment_pick/
+
+
+# ignore any model checkpoint files by common extensions
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.t7
+*.bin
+*.safetensors
+*.onnx
+*.pb
+
+# ignore any directory named “models” or “checkpoints”
+models/
+checkpoints/
+model_weights/
+
+
+
+# === Local backups & generated folders ===
+.git_backup/
+urdf/
+
+# === ROS 1 (catkin) build/devel spaces ===
+build/
+devel/
+logs/
+
+# === ROS 2 (colcon) build/install/log spaces ===
+install/
+log/
+
+# === ROS bag and other runtime files ===
+*.bag
+*.bag.active
+*.db3
+
+# === Python artifacts ===
+__pycache__/
+*.py[cod]
+*$py.class
+.env/
+.venv/
+
+# === C/C++ build artifacts ===
+*.o
+*.obj
+*.so
+*.a
+*.dll
+*.exe
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+install_manifest.txt
+
+# === VSCode & JetBrains IDEs ===
+.vscode/
+.idea/
+*.iml
+
+# === Misc editors/OS ===
+*~
+*.swp
+.DS_Store
+Thumbs.db
+
+# === Colcon workspace metadata ===
+colcon_core/log/
+colcon_core/meta/
+
+# === Local ROS settings & overlays ===
+.ros/
+.rosinstall
+.rosinstall.*
+.rosdep/
+
+# === Logs & coverage ===
+*.log
+coverage.xml
+htmlcov/
+
+# === Other temporary files ===
+*.tmp
+*.npy
+*.png
+
+# === Node.js & WebSocket artifacts ===
+node_modules/
+npm-debug.log*
+yarn-error.log*
+dist/
+build/
+*.pid
+*.sock
+*.cache/
+*.local
+package-lock.json
+yarn.lock
+
+# === Config & environment ===
+*.env
+*.local
+*.secret
+
+# === Docker / Compose certs ===
+docker-compose.override.yml
+*.pem

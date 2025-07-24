@@ -1,0 +1,18 @@
+Collecting python-socketio
+  Downloading https://files.pythonhosted.org/packages/5c/6d/dd2447d27979c4ca84738bb4d5a9245aa8e1f736b4054d894f7fd2030c84/python_socketio-5.11.0-py3-none-any.whl (75kB)
+Collecting bidict
+  Downloading https://files.pythonhosted.org/packages/f1/04/ac51cac8d2b792a8de216c775248a371bf1da25f11d919f3528975288e21/bidict-0.21.4-py3-none-any.whl
+Collecting python-engineio>=4.8.0 (from python-socketio)
+  Downloading https://files.pythonhosted.org/packages/0c/fa/df59acedf7bbb937f69174d00f921a7b93aa5a5f5c17d05296c814fff6fc/python_engineio-4.12.2-py3-none-any.whl (59kB)
+Collecting simple-websocket>=0.10.0 (from python-engineio>=4.8.0->python-socketio)
+  Downloading https://files.pythonhosted.org/packages/52/59/0782e51887ac6b07ffd1570e0364cf901ebc36345fea669969d2084baebb/simple_websocket-1.1.0-py3-none-any.whl
+Collecting wsproto (from simple-websocket>=0.10.0->python-engineio>=4.8.0->python-socketio)
+  Downloading https://files.pythonhosted.org/packages/ea/25/0934b1d00f404d75335b144d4396e01998f25db8953bf54b4d6fe65b80ab/wsproto-1.0.0-py3-none-any.whl
+Collecting h11<1,>=0.9.0 (from wsproto->simple-websocket>=0.10.0->python-engineio>=4.8.0->python-socketio)
+  Downloading https://files.pythonhosted.org/packages/19/d2/32a15a4955be1b8114a1c570999eefd31279c7f9aa2d2a43d492a79b53c5/h11-0.13.0-py3-none-any.whl (58kB)
+Collecting dataclasses; python_version < "3.7" (from wsproto->simple-websocket>=0.10.0->python-engineio>=4.8.0->python-socketio)
+  Using cached https://files.pythonhosted.org/packages/fe/ca/75fac5856ab5cfa51bbbcefa250182e50441074fdc3f803f6e76451fab43/dataclasses-0.8-py3-none-any.whl
+Collecting typing-extensions; python_version < "3.8" (from h11<1,>=0.9.0->wsproto->simple-websocket>=0.10.0->python-engineio>=4.8.0->python-socketio)
+  Using cached https://files.pythonhosted.org/packages/45/6b/44f7f8f1e110027cf88956b59f2fad776cca7e1704396d043f89effd3a0e/typing_extensions-4.1.1-py3-none-any.whl
+Installing collected packages: bidict, typing-extensions, dataclasses, h11, wsproto, simple-websocket, python-engineio, python-socketio
+Successfully installed bidict-0.21.4 dataclasses-0.8 h11-0.13.0 python-engineio-4.12.2 python-socketio-5.11.0 simple-websocket-1.1.0 typing-extensions-4.1.1 wsproto-1.0.0

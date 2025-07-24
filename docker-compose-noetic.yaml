@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  ros_noetic:
+    build: .
+    image: mtp2-ros_noetic  # This sets the image name explicitly
+    container_name: ros_noetic_container
+    volumes:
+      - ./catkin_ws:/root/catkin_ws
+    ports:
+      - "11311:11311"
+    environment:
+      - DISPLAY=$DISPLAY
+    devices:
+      - "/dev/video0:/dev/video0"
+    runtime: nvidia
+    networks:
+      - ros_network
+    command: /bin/bash -c "while true; do sleep 1000; done"  # Keeps the container running
+    stdin_open: true  # Open stdin to keep it interactive
+    tty: true  # Allocate a pseudo-TTY so you can interact with the shell
+
+networks:
+  ros_network:
+    driver: bridge

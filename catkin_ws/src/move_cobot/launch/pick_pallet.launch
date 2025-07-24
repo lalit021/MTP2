@@ -1,0 +1,42 @@
+<launch>
+    <!-- Default argument for simulation -->
+    <arg name="sim" default="true" />
+
+
+    <!-- Static transform: base to common_aruco -->
+    <node
+        pkg="tf2_ros"
+        type="static_transform_publisher"
+        name="base_to_marker_51"
+        args="0.5 0.5 0 0 0 0 base marker_51" />
+
+    <!-- Static transform: common_aruco to camera -->
+    <!--<node
+        pkg="tf2_ros"
+        type="static_transform_publisher"
+        name="common_aruco_to_camera"
+        args="0 0 0.5 0 0 0 common_aruco camera_frame" />-->
+
+
+
+    <!-- Include aruco_pose.launch -->
+    <include file="$(find aruco_pose)/launch/aruco_launch.launch">
+        <arg name="start_rviz" value="false" />
+    </include>
+
+    <!-- Additional nodes for move_cobot -->
+    <!--<node
+        name="move_cobot_node"
+        pkg="move_cobot"
+        type="move_cobot_node"
+        output="screen">
+    </node>-->
+
+    <!-- Optional: Add RViz specifically for move_cobot -->
+    <node
+        name="rviz"
+        pkg="rviz"
+        type="rviz"
+        args="-d $(find move_cobot)/rviz/move_cobot_config.rviz"
+        output="screen" />
+</launch>

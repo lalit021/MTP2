@@ -1,0 +1,21 @@
+# docker-compose -f docker-compose-melodic.yaml up
+
+version: "3"
+
+services:
+  ros_melodic:
+    image: my_ros_container  # Specify the image name
+    container_name: ros_melodic_container
+    volumes:
+      - ./catkin_ws:/root/catkin_ws  # Bind mount the workspace directory
+      - /tmp/.X11-unix:/tmp/.X11-unix  # Mount the X11 socket for GUI support
+    environment:
+      - DISPLAY=$DISPLAY  # Pass the host display to the container
+      - QT_X11_NO_MITSHM=1  # Prevent shared memory issues with Qt applications
+    devices:
+      - "/dev/video0:/dev/video0"  # Map video devices for camera access
+    network_mode: host  # Use the host network (allows access to camera and other devices)
+    privileged: true  # Grant full access to devices (camera, USB, etc.)
+    command: /bin/bash -c "while true; do sleep 1000; done"  # Keeps the container running
+    stdin_open: true  # Open stdin to keep it interactive
+    tty: true  # Allocate a pseudo-TTY so you can interact with the shell

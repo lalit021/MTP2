@@ -1,0 +1,46 @@
+<launch>
+    <!-- Argument to control RViz launch -->
+    <arg name="start_rviz" default="true" />
+    
+    <!-- Argument to control RealSense usage -->
+    <arg name="realsense" default="true" />
+
+    <!-- Node to run the camera_publish.py script -->
+    <node 
+        name="camera_publisher" 
+        pkg="aruco_pose" 
+        type="camera_publish.py" 
+        output="screen">
+        <param name="realsense" value="$(arg realsense)" />
+    </node>
+
+    <!-- Node to run the ArUco detection script -->
+    <node 
+        name="aruco_detect" 
+        pkg="aruco_pose" 
+        type="aruco_detection.py" 
+        output="screen">
+    </node>
+
+    <!-- Conditional RViz node -->
+    <node
+        if="$(arg start_rviz)"
+        name="rviz"
+        pkg="rviz"
+        type="rviz"
+        args="-d $(find aruco_pose)/rviz/aruco_pose.rviz"
+        output="screen" />
+
+    <node 
+        name="image_save" 
+        pkg="aruco_pose" 
+        type="save_imgs.py" 
+        output="screen">
+    </node>
+        <node 
+        name="get_coordinate" 
+        pkg="aruco_pose" 
+        type="get_coordinate_from_pixel.py" 
+        output="screen">
+    </node>
+</launch>
