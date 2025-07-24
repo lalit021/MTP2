@@ -1,0 +1,18 @@
+
+<launch>
+    <node pkg="arm_control" type="tf_publisher.py" name="tf_publisher" output="screen">
+    </node>
+    <node pkg="arm_control" type="planning_scene.py" name="planning_scene" output="screen">
+    </node>
+
+    <!-- <node pkg="move_cobot" type="reach_target_pose.py" name="publish_target_frame" output="screen"> -->
+       <!-- <param name="param_name" value="param_value" />  -->
+    <!-- </node>  -->
+
+    <!-- Include the aruco_pose.launch file and set start_rviz to false -->
+    
+    <include file="$(find aruco_pose)/launch/aruco_pose.launch">
+        <arg name="start_rviz" value="false" />
+        <arg name="realsense" value="true" />
+    </include> 
+</launch>

@@ -1,0 +1,16 @@
+# Ignore ROS 1 build, devel, install, and log directories
+**/devel/
+
+# Ignore ROS 2 build, install, and log directories
+**/build/
+**/install/
+**/log/
+**/install_isolated/
+**/build_isolated/
+**/log_isolated/
+
+# Ignore model downloads folder
+moondream2_model/
+**/__pycache__/
+sam2/
+/home/dell/MTP@/MTP2/catkin_ws/src/aruco_pose/saved_images

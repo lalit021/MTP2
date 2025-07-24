@@ -1,0 +1,51 @@
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from PIL import Image
+import torch
+
+# Load the model and tokenizer
+model = AutoModelForCausalLM.from_pretrained(
+    "vikhyatk/moondream2",
+    revision="2025-04-14",
+    trust_remote_code=True,
+    # Uncomment to run on GPU (CUDA).
+    device_map={"": "cuda"}  # Uncomment this line to use GPU if available.
+)
+
+# Check if CUDA is available, otherwise, it will fall back to CPU.
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model = model.to(device)  # Move the model to GPU if available, otherwise use CPU.
+
+# Load the image
+image_path = "/home/dell/MTP2/robot_ws/1.jpeg"  # Replace this with the actual path to your image
+try:
+    image = Image.open(image_path)
+except FileNotFoundError:
+    print(f"Error: Image not found at {image_path}. Please check the path.")
+    exit()
+
+# Captioning
+print("Short caption:")
+caption_output = model.caption(image, length="short")
+print(caption_output["caption"])
+
+print("\nNormal caption:")
+caption_output = model.caption(image, length="normal", stream=True)
+for t in caption_output["caption"]:
+    # Streaming generation example, supported for caption() and detect()
+    print(t, end="", flush=True)
+print(caption_output["caption"])
+
+# Visual Querying
+print("\nVisual query: 'How many people are in the image?'")
+query_output = model.query(image, "How many people are in the image?")
+print(query_output["answer"])
+
+# Object Detection
+print("\nObject detection: 'face'")
+objects = model.detect(image, "face")["objects"]
+print(f"Found {len(objects)} face(s)")
+
+# Pointing
+print("\nPointing: 'person'")
+points = model.point(image, "person")["points"]
+print(f"Found {len(points)} person(s)")

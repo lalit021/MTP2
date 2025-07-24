@@ -1,0 +1,22 @@
+{
+    "transforms": [
+        {
+            "parent_frame": "world",
+            "child_frame": "base",
+            "translation": [0, 0.0, 0.0],
+            "rotation": [0, 0.0, 0]
+        },
+        {
+            "parent_frame": "world",
+            "child_frame": "map",
+            "translation": [0, 0.0, 0.0],
+            "rotation": [0, 0.0, 0]
+        },
+        {
+            "parent_frame": "base",
+            "child_frame": "marker_cobot_base",
+            "translation": [-0.449, -0.174, 0.0],
+            "rotation": [0, 0.0, 90]
+        }
+    ]
+}

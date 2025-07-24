@@ -1,11 +1,7 @@
 # === Duplicate workspace’s tmr_ros1 package ===
 catkin_ws_copy/src/tmr_ros1/
 catkin_ws/src/tmr_ros1/
-catkin_ws_copy/
-ros2_ws/
-new_mtp/
-robot_ws/
-segment_pick/
+
 
 
 # ignore any model checkpoint files by common extensions

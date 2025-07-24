@@ -1,0 +1,5 @@
+{
+    "marker_50": { "name": "marker_station" },
+    "marker_51": { "name": "marker_pallet" },
+    "marker_49": { "name": "marker_cobot_base", "reverse": true }
+}
